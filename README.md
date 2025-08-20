@@ -2,7 +2,7 @@
 
 **Version:** 1.0  
 **Date:** August 20, 2025  
-**Owner:** [Your Name / ZZ Fit]  
+**Owner:** [Zara Zolkos / ZZ Fit]  
 
 ---
 
