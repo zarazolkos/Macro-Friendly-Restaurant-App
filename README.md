@@ -1,95 +1,133 @@
-# Macro-Friendly-Restaurant-App
-App to help macro trackers and fitness enthusiasts find macro friendly restaurants with ease in their area or while travelling.  
+# MacroMap – Macro Tracking Restaurant App
+
+**Version:** 1.0  
+**Date:** August 20, 2025  
+**Owner:** [Your Name / ZZ Fit]  
 
 ---
 
-## 🚀 Goal
-- **Problem:** Eating out while tracking macros is hard.
-- **Audience:** Fitness enthusiasts, athletes, and anyone tracking calories/macros.
-- **Solution:** An app that lists restaurants with macro-friendly options and nutrition info.
+## 📖 Overview
 
-## 🧱 Tech Stack
-- **Platform:** React Native (Expo)
-- **Language:** JavaScript/TypeScript
-- **Backend (future):** Node.js/Express + MongoDB or Firebase
+**MacroMap** helps health-conscious users find restaurants and meals that fit their nutritional goals. It provides local restaurant discovery, full menu with macro breakdowns, filtering tools, and the ability to save favorites.
 
-## 📱 Core Features (MVP)
-- [ ] Search restaurants nearby
-- [ ] Filter meals by macro targets
-- [ ] Save favorite restaurants
-- [ ] User accounts (basic auth)
+### Goals
+- Allow users to easily discover **macro-friendly restaurants** in their local area.  
+- Provide **detailed nutritional breakdowns** of menu items (calories, protein, carbs, fats, fiber).  
+- Enable **filtering and personalization** based on users’ macro goals.  
+- Provide a **seamless, engaging user experience** with quick search, filtering, and favorites.  
 
-### Future Ideas
-- [ ] Integration with MyFitnessPal
-- [ ] Travel mode (suggest restaurants in other cities)
-- [ ] Reviews and community recommendations
-
-## 🗺️ Roadmap (Beginner-Friendly)
-
-### Phase 1: Foundation (Weeks 1–2)
-- [x] Set up GitHub repo ✅
-- [ ] Install tools: Node.js, VS Code, Expo CLI, Expo Go
-- [ ] Scaffold project with `npx create-expo-app`
-- [ ] Push starter code to GitHub
-- [ ] Write README with goals + roadmap
-- [ ] Document setup steps in `/docs/journal/week-01.md`
+### Success Metrics
+- % of users who successfully search and view at least 1 restaurant per session.  
+- Average number of menu items viewed per user.  
+- Favorites added per user.  
+- 30-day retention rate.  
 
 ---
 
-### Phase 2: First Feature & UI Basics (Weeks 3–4)
-- [ ] Learn basics of React Native: components, props, state
-- [ ] Add a **home screen** with app title/logo
-- [ ] Create simple navigation (tab or stack navigation)
-- [ ] Add a placeholder **search bar** (not functional yet)
-- [ ] Push code weekly, update journal with what you learned
+## 🎯 Target Audience
+- **Demographic:** Fitness enthusiasts, athletes, dieters, and health-conscious individuals (18–40).  
+- **Primary Need:** Quickly find dining options that align with calorie and macro goals.  
+- **Pain Points Solved:** Lack of transparency in menus, time wasted searching for “healthy” meals, tracking meals when eating out.  
 
 ---
 
-### Phase 3: Core MVP (Weeks 5–7)
-- [ ] Connect to a **mock data file** (JSON with restaurant info)
-- [ ] Display a list of restaurants with macros (dummy data)
-- [ ] Add filter options (high-protein, low-calorie, etc.)
-- [ ] Allow user to “favorite” a restaurant (save in local storage)
-- [ ] Journal weekly progress (blockers + wins)
+## 🚀 Features
+
+### Core Features (MVP)
+1. **Restaurant Discovery**  
+   - Location-based search (map + list).  
+   - Tags like *High-Protein*, *Low-Calorie*, *Low-Carb*.  
+
+2. **Menu & Macros**  
+   - Full menu with kcal, protein, carbs, fat, fiber.  
+   - Pull from database or nutrition API.  
+   - Fallback: AI-based estimation for missing data.  
+
+3. **Favorites**  
+   - Save favorite restaurants and menu items.  
+   - Synced to user profile.  
+
+4. **Filtering & Sorting**  
+   - Filters: calories, protein min, fat max, carbs max.  
+   - Presets: “Under 500 kcal,” “Over 30g protein,” “Low Carb.”  
+   - Sort by distance, protein per calorie, rating.  
+
+### Future Features (Phase 2+)
+- User profile with macro goals.  
+- Progress % per meal vs daily goals.  
+- User reviews & photos.  
+- Coach picks / featured meals.  
+- Push notifications for nearby options.  
 
 ---
 
-### Phase 4: Polishing (Weeks 8–9)
-- [ ] Improve UI: colors, fonts, icons
-- [ ] Add a splash screen & app icon
-- [ ] Test on both iOS + Android (Expo makes this easy)
-- [ ] Share screenshots in README
+## 🗄️ Data & Integrations
+
+### Database (Supabase Recommended)
+- **restaurants**: id, name, cuisine, address, lat/lng, rating, tags, photo.  
+- **menu_items**: id, restaurant_id, name, kcal, protein, carbs, fat, fiber, verified.  
+- **favorites**: user_id, restaurant_id/menu_item_id.  
+- **users_profile**: user_id, macro goals, dietary tags.  
+
+### APIs
+- **Google Places API** → restaurant discovery, photos.  
+- **Nutritionix API** → nutrition data for menu items.  
+- **Supabase** → authentication, storage, database.  
 
 ---
 
-### Phase 5: Stretch Goals (Weeks 10–12+)
-- [ ] Connect to a real API (e.g., Yelp API for restaurants)
-- [ ] Add simple user login (Firebase Auth is beginner-friendly)
-- [ ] Deploy a beta version via Expo so others can test
-- [ ] Write a blog post (Hashnode/Dev.to) summarizing your MVP
+## 🔄 User Flow
+
+**Example: Find a Macro-Friendly Meal**  
+1. User opens app → location permission granted.  
+2. Nearby restaurants shown (list + map).  
+3. User taps restaurant → menu items + macros displayed.  
+4. User applies filters (e.g., Protein >30g, Calories <500).  
+5. User saves meal/restaurant to Favorites.  
 
 ---
 
-## ⏱️ Realistic Timeline
-- **Month 1:** Setup + Hello World  
-- **Month 2:** First screens + navigation  
-- **Month 3:** Core restaurant list & filtering  
-- **Month 4:** Favorites, polish, screenshots  
-- **Month 5+:** APIs, auth, publish beta  
+## 🎨 Design
+
+- **UI Style:** Clean, fitness-focused, modern.  
+- **Navigation:** Bottom tab bar (Home, Search, Favorites, Profile).  
+- **Components:**  
+  - Restaurant cards (photo, rating, tags).  
+  - Menu item rows (name, macros, add to favorites).  
+  - Filter chips & progress bars.  
+- **Images:**  
+  - Restaurants → Google Places photos.  
+  - Menu items → Nutritionix / placeholders.  
 
 ---
 
-## 📒 Developer Habits
-- Commit to GitHub often (small commits > big dumps)  
-- Update **Dev Journal** (`/docs/journal/`) once a week  
-- Open **Issues** for each feature/bug  
-- Use a **Project Board** (*Backlog → In Progress → Done*)  
+## ⚙️ Technical Stack
 
+- **Frontend:** React Native (Expo).  
+- **Backend:** Supabase (Postgres + Auth + Storage).  
+- **Auth:** Email & password (social login later).  
+- **Caching:** Offline last search.  
+- **Deployment:** Expo EAS → iOS + Android.  
 
-## 🧪 Running the App
-### React Native (Expo)
-```bash
-npm create expo-app@latest
-cd Macro-Friendly-Restaurant-App
-npm install
-npx expo start
+---
+
+## ⚠️ Risks & Constraints
+
+- API coverage gaps (not all restaurants/menus available).  
+- Menus change frequently → background sync or user submissions needed.  
+- Nutrition estimates may be approximate.  
+
+---
+
+## 🔮 Future Enhancements
+
+- AI-powered meal recommendations.  
+- Barcode scanner for packaged meals.  
+- Subscription model (Pro tier with advanced filters).  
+- Partnerships with restaurants for verified macro menus.  
+
+---
+
+## 📌 Status
+
+This PRD defines **Version 1.0 (MVP)** scope. Future iterations will expand features based on user adoption and feedback.
